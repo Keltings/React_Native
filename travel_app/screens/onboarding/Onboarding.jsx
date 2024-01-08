@@ -1,6 +1,6 @@
-import { StyleSheet, Text, FlatList } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { Slides } from '../../components'
 
 const Onboarding = () => {
     const slides = [
@@ -20,13 +20,19 @@ const Onboarding = () => {
             title: 'Find the best Hotels in the world'
         },
     ]
+    /* flatlist enables us to render lists*/ 
   return (
-    <SafeAreaView>
-      <Text>Onboarding</Text>
-    </SafeAreaView>
+    <FlatList
+    pagingEnabled /*able to scroll from one page to another*/
+    horizontal /*set the direction for scrolling */
+    showsHorizontalScrollIndicator={false}/*position we are at which we scroll to false */
+    data={slides}
+    keyExtractor={(item) => item.id}
+    renderItem={({item})=> <Slides item={item}/>}
+    />
+      
+      
   )
 }
 
 export default Onboarding
-
-const styles = StyleSheet.create({})
