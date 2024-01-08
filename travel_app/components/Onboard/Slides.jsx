@@ -9,6 +9,10 @@ const Slides = ({item}) => {
     /*view is just like a container, everything we write will be inside it*/
     <View>
         <Image source={item.image} style={styles}/>
+
+            <View style={styles.stack}>
+                <Text>Travel Insights</Text>
+            </View>
     </View>
   )
 }
