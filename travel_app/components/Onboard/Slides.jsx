@@ -25,7 +25,7 @@ const Slides = ({ item }) => {
                 <HeightSpacer height={30}/>
 
                 <ReusableBtn 
-                  onPress={()=> navigation.navigate('Button')}
+                  onPress={()=> navigation.navigate('Bottom')}
                   btnText={"Let's go"}
                   width={(SIZES.width - 50) / 2.2}
                   backgroundColor={COLORS.red}
