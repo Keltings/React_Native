@@ -1,14 +1,18 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import reusable from '../../components/Reusable/reusable.style'
 
 const Home = () => {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <SafeAreaView style={reusable.container}>
+      <View>
+        <View style={reusable.rowWithSpace}>
+
+        </View>
+      </View>
+    </SafeAreaView>
   )
 }
 
 export default Home
 
-const styles = StyleSheet.create({})
