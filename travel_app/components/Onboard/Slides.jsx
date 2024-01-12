@@ -15,12 +15,7 @@ const Slides = ({ item }) => {
         <Image source={item.image} style={styles.image}/>
 
             <View style={styles.stack}>
-                <ReusableText
-                  text={item.title}
-                  family={"medium"}
-                  size={SIZES.xxLarge}
-                  color={COLORS.white}
-                />
+                 
 
                 <HeightSpacer height={30}/>
 
