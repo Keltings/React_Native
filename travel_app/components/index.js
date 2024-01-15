@@ -4,12 +4,16 @@ import ReusableBtn from "./Buttons/ReusableBtn";
 import HeightSpacer from "./Reusable/HeightSpacer";
 import WidthSpacer from "./Reusable/WidthSpacer";
 import Places from "./Home/Places";
+import NetworkImage from "./Reusable/Networkimage";
+
+
 export {
     Slides,
     ReusableText,
     ReusableBtn,
     HeightSpacer,
     WidthSpacer,
-    Places
+    Places,
+    NetworkImage
 
 }
