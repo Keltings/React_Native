@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native'
 const Country = ({item}) => {
   const navigation = useNavigation();
   return (
-    <TouchableOpacity onPress={()=> navigation.navigate('CountryDetails', item )}>
+    <TouchableOpacity onPress={()=> navigation.navigate('CountryDetails', {item} )}>
         <View>
         <NetworkImage 
         source={item.imageurl} 

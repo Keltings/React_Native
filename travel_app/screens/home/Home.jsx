@@ -36,7 +36,13 @@ const Home = ({navigation}) => {
                   size={TEXT.large}
                   color={COLORS.black}
                 />
+
                 <Places/>
+
+                <HeightSpacer height={15}/>
+
+                
+
       </View>
     </SafeAreaView>
   )
