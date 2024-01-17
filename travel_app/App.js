@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomTabNavigation from './navigation/BottomTabNavigation';
-import { Onboarding, Search, CountryDetails } from './screens';
+import { Onboarding, Search, CountryDetails, Recommended } from './screens';
 
 
 const Stack = createNativeStackNavigator();
@@ -35,6 +35,7 @@ if(!fontsLoaded){
         <Stack.Screen name='Bottom' component={BottomTabNavigation} options={ {headerShown: false}}/>
         <Stack.Screen name='Search' component={Search} options={ {headerShown: false}}/>
         <Stack.Screen name='CountryDetails' component={CountryDetails} options={ {headerShown: false}}/>
+        <Stack.Screen name='Recommended' component={Recommended} options={ {headerShown: false}}/>
 
 
 
