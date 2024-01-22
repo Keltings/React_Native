@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView } from 'react-native'
 import React from 'react'
 import reusable from '../../components/Reusable/reusable.style'
-import { BestHotels, HeightSpacer, Recommendations, ReusableText } from '../../components'
+import {BestHotels, HeightSpacer, Recommendations, ReusableText } from '../../components'
 import Places from '../../components/Home/Places'
 import {TEXT, COLORS, SIZES} from '../../constants/theme'
 import {AntDesign} from '@expo/vector-icons'

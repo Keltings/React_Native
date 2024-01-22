@@ -5,6 +5,7 @@ import ReusableText from '../Reusable/ReusableText'
 import { COLORS, TEXT, SIZES } from '../../constants/theme'
 import { Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
+import { HotelCard } from '..'
 
 
 const BestHotels = () => {
@@ -66,7 +67,7 @@ const BestHotels = () => {
                   color={COLORS.black}
                 />
 
-                <TouchableOpacity onPress={()=> navigation.navigate('Recommended')}>
+                <TouchableOpacity onPress={()=> navigation.navigate('HotelList')}>
                     <Feather
                     name="list"
                     size={20}
@@ -81,7 +82,7 @@ const BestHotels = () => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{columnGap: SIZES.medium}}
         renderItem={({item}) => (
-          <Text>{item.title}</Text>
+          <HotelCard item={item} margin={10} onPress={()=> navigation.navigate("HotelDetails")}/>
         )}
          />
     </View>
