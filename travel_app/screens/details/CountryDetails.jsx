@@ -92,7 +92,7 @@ const CountryDetails = ({navigation}) => {
           <PopularList data={country.popular}/>
 
           <ReusableBtn 
-                  onPress={()=> navigation.navigate('HotelSearch', id)}
+                  onPress={()=> navigation.navigate('HotelSearch')}
                   btnText={"Find Best Hotels"}
                   width={SIZES.width - 40}
                   backgroundColor={COLORS.green}
@@ -106,8 +106,8 @@ const CountryDetails = ({navigation}) => {
         </View>
         </View>
       </ScrollView>
-  )
-}
+  );
+};
 
 export default CountryDetails
 const styles = StyleSheet.create({
