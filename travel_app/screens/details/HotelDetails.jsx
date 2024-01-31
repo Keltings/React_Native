@@ -1,10 +1,11 @@
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { AppBar, HeightSpacer, NetworkImage, ReusableText } from '../../components'
+import { AppBar, DescriptionText, HeightSpacer, HotelMap, NetworkImage, ReusableText, ReviewsList } from '../../components'
 import { COLORS, SIZES } from '../../constants/theme'
 import styles from '../../components/Onboard/slides.style'
 import reusable from '../../components/Reusable/reusable.style'
 import {Rating} from 'react-native-stock-star-rating';
+import {Feather} from '@expo/vector-icons'
 
 const HotelDetails = ({navigation}) => {
   const hotel = {
@@ -21,8 +22,8 @@ const HotelDetails = ({navigation}) => {
     "rating": 4.8,
     "review": "2312 Reviews",
     "location": "San Francisco, CA",
-    "latitude": 37.7749,
-    "longitude": -122.4194,
+    "coordinates": {"latitude": 37.7749,
+    "longitude": -122.4194},
     "price": 400,
     "facilities": [
         {
@@ -31,6 +32,14 @@ const HotelDetails = ({navigation}) => {
         }
     ],
     "__v": 0
+};
+let coordinates = {
+  id: hotel._id,
+  title: hotel.title,
+  latitude: hotel.coordinates.latitude,
+  longitude: hotel.coordinates.longitude,
+  latitudeDelta: 0.01,
+  longitudeDelta: 0.01
 }
   return (
     <ScrollView>
@@ -39,7 +48,7 @@ const HotelDetails = ({navigation}) => {
           top={50}
           left={20}
           right={20}
-          title={'bbahi'} 
+          title={hotel.title} 
           color={COLORS.white} 
           icon={'search1'} 
           color1={COLORS.white}
@@ -50,6 +59,7 @@ const HotelDetails = ({navigation}) => {
         />
       </View>
 
+      <View>
       <View style={styles.container}>
         <NetworkImage
         source={hotel.imageUrl}
@@ -58,13 +68,13 @@ const HotelDetails = ({navigation}) => {
         radius={25}
         />
         <View style={styles.titleContainer}>
-        <View style={styles.titleColumn}>
-        <ReusableText
+          <View style={styles.titleColumn}>
+            <ReusableText
                   text={hotel.title}
                   family={"medium"}
                   size={SIZES.xLarge}
                   color={COLORS.black}
-        />
+            />
 
         <HeightSpacer height={10}/>
         <ReusableText
@@ -74,17 +84,82 @@ const HotelDetails = ({navigation}) => {
                   color={COLORS.black}
         />
 
-        <HeightSpacer height={15}/>
+        <HeightSpacer height={10}/>
 
         <View style={reusable.rowWithSpace('space-between')}>
+          <Rating
+          maxStars={5}
+          stars={hotel.rating}
+          bordered={false}
+          color={'#FD9942'}
+          />
 
+          <ReusableText
+                  text={`(${hotel.review})`}
+                  family={"medium"}
+                  size={SIZES.medium}
+                  color={COLORS.gray}
+        />
         </View>
         </View>
         </View>
 
       </View>
+
+      <View style={[styles.container, {paddingTop: 90}]}>
+      <ReusableText
+                  text={"Description"}
+                  family={"medium"}
+                  size={SIZES.large}
+                  color={COLORS.black}
+        />
+
+        <HeightSpacer height={8}/> 
+
+        <DescriptionText text={hotel.description}/>
+
+        <HeightSpacer height={10}/> 
+        
+        <ReusableText
+                  text={"Location"}
+                  family={"medium"}
+                  size={SIZES.large}
+                  color={COLORS.black}
+        />
+
+        <HeightSpacer height={15}/> 
+        
+        <ReusableText
+                  text={hotel.location}
+                  family={"regular"}
+                  size={SIZES.small+2}
+                  color={COLORS.gray}
+        />
+
+        <HotelMap coordinates={coordinates}/>  
+
+        <View style={reusable.rowWithSpace('space-between')}>
+        <ReusableText
+                  text={"Reviews"}
+                  family={"medium"}
+                  size={SIZES.large}
+                  color={COLORS.black}
+        />  
+
+        <TouchableOpacity>
+          <Feather name='list' size={20}/>
+        </TouchableOpacity>
+
+        </View>
+       <HeightSpacer height={10}/>
+
+        <ReviewsList reviews={hotel.reviews}/>
+
+      </View>
+
+      </View>
     </ScrollView>
-  )
-}
+  );
+};
 
 export default HotelDetails
